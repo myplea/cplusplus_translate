@@ -1,0 +1,48 @@
+字符处理函数
+该头文件声明了一组用于对单个字符进行分类和转换的函数。
+
+这些函数将一个字符的int值作为参数，并返回一个int，这个int可以是另一个字符，也可以是一个表示布尔值的值:int值为0表示false，与0不同的int值表示true。
+有两套函数：
+1  字符分类函数
+1）int isalnum ( int c );       检查字符是否为 字母 或 数字
+2）int isalpha ( int c );       检查字符是否为 字母
+3）int isblank ( int c );       检查字符是否为 空  '\t' ' '
+4）int isdigit ( int c );       检查字符是否为 0 1 2 3 4 5 6 7 8 9
+5）int iscntrl ( int c );       检查字符是否为 控制字符
+6）int isgraph ( int c );       检查字符是否为 可打印字符 （不含空格 控制字符不可打印
+7）int islower ( int c );       检查字符是否为 小写字母 a b c d e f g h i j k l m n o p q r s t u v w x y z
+8）int isprint ( int c );       检查字符是否为 可打印字符 （含空格 控制字符不可打印
+9）int ispunct ( int c );       检查字符是否为 标点符号
+10）int isspace ( int c );      检查字符是否为 空白字符 对于“C”语言环境，空白字符是：' '、'\t'、'\n'、'\v'、'\f'和 '\r'
+11）int isupper ( int c );      检查字符是否为 大写字母 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+12）int isxdigit ( int c );     检查字符是否为 十六进制数字 0 1 2 3 4 5 6 7 8 9 a b c d e f A B C D E F 
+
+
+2  字符转换函数
+13）int tolower ( int c );      将大写字母转换为小写字母 A -> a  a -> a
+14）int toupper ( int c );      将小写字母转换为大写字母 a -> A  A -> A
+
+
+例子贴：
+1）
+/* isalnum example */
+#include <iostream>
+#include <cctype>
+using namespace std;
+int main()
+{
+	int i;
+	char str[] = "C3po...";
+	i = 0;
+	while (i < sizeof(str)-1)
+	{
+		if (isalnum(str[i]))
+			cout << str[i] << " Y" << endl;
+		else 
+			cout << str[i] << " N" << endl;
+		i++;
+	}
+
+	getchar();
+	return 0;
+}
